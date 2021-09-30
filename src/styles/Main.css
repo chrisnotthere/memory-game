@@ -1,5 +1,31 @@
 main {
-  padding: 1rem;
-  /* background-color: cornflowerblue; */
+  padding: 5rem;
+  background-color: cornflowerblue;
   /* height: 100%; */
+  /* display: flex; */
+  /* justify-content: space-around; */
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 1rem;
+}
+
+.card-title {
+  text-align: center;
+  /* height: 10px; */
+  /* line-height: 10px; */
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.card:hover {
+  box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.card {
+  padding: 1rem;
+  margin: 0.25rem;
 }
