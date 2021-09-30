@@ -1,6 +1,6 @@
 import React from "react";
 import ScoreBoard from "./ScoreBoard";
-import Settings from "./Settings";
+import Slider from "./Slider";
 import '../../styles/Header.css'
 
 const Header = (props) => {
@@ -9,7 +9,10 @@ const Header = (props) => {
   return (
     <header>
       
-      <Settings />
+      <Slider 
+        imageCount={props.imageCount}
+        setImageCount={props.setImageCount}
+      />
 
       <div className='title'>
         <p className='titleText'>Memory Card Game</p>
