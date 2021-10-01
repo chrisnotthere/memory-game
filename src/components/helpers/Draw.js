@@ -1,7 +1,3 @@
-import Cards from "../card_grid/Cards";
-
-//draw random card from the deck...
-
 export const drawCards = (numberOfCards) => {
 
   console.log('drawing cards now...');
@@ -15,7 +11,6 @@ export const drawCards = (numberOfCards) => {
   }
 
   const ranNums = shuffle([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]);
-
   let randomCardNumbers = [];
 
   const draw = () => {
@@ -32,10 +27,6 @@ export const drawCards = (numberOfCards) => {
 
   Array.from({length: numberOfCards}, () => draw());
 
-  //console.log(randomCardNumbers);
-
-  //console.log(`number of cards: ${numberOfCards}`);
-
+  console.log(randomCardNumbers);
   return randomCardNumbers;
-
 }
