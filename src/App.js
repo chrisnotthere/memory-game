@@ -1,10 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect} from 'react';
 import './styles/App.css';
 import Header from './components/header/Header';
 import Main from './components/card_grid/Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cards from './components/card_grid/Cards';
+import { shuffle } from './components/helpers/Shuffle';
+import { drawCards } from './components/helpers/Draw';
 
 function App() {
 
@@ -22,7 +23,18 @@ function App() {
     if(currentScore > bestScore){
       setBestScore(currentScore)
     }
-  }, [currentScore]);
+  }, [bestScore, currentScore]);
+
+
+  //draw cards on mount
+  useEffect(() => {
+    drawCards();
+  }, [])
+
+  // //draw cards on imageCount change
+  // useEffect(() => {
+  //   drawCards(imageCount);
+  // }, [imageCount])
 
 
   const handleCardClick = (e) => {
@@ -36,10 +48,13 @@ function App() {
     if(!card[0].isClicked) {
       setCurrentScore(currentScore + 1);
       card[0].isClicked = true; 
-      console.log('this card has not been clicked before');    
+      console.log('this card has not been clicked before');
+      shuffle();    
     } else {
       console.log('you have already clicked this card, you lose');
+      alert('card already clicked, you lose!');
       resetScore();
+      shuffle();
     }
 
   }
@@ -55,6 +70,7 @@ function App() {
         setCurrentScore={setCurrentScore}
         imageCount={imageCount}
         handleCardClick={(e) => handleCardClick(e)}
+        Cards={Cards}
       />
     </div>
   );
