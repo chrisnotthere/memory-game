@@ -4,45 +4,56 @@ import Card from "react-bootstrap/Card";
 import Cards from "./Cards";
 import { drawCards } from "../helpers/Draw";
 
-// eslint-disable-next-line no-unused-vars
-import { bowser,dk,iggy,koopa,lakitu,lemmy,ludwig,luigi,mario,mii,morton,roy,shy,toad,waluigi,wario,wendy,yoshi } from '../../images/index';
-
-
 
 const Main = (props) => {
   
-  let cardsToDraw = drawCards(props.imageCount);
-  console.log(`cards to draw: ${cardsToDraw}`);
+  const resetScore = () => {
+    props.setCurrentScore(0);
+    Cards.forEach(deckCard => deckCard.isClicked = false);
+    console.log('resetting score and cards');
+  }
+  
+  const createNewCardArray = () => {
+    let cardsToDraw = drawCards(props.imageCount);  
+    let newCards = Cards.filter(card => cardsToDraw.includes(card.id));
+    return newCards;
+  }
+  
+  const handleCardClick = (e) => {
 
-  //console.log({Cards});
-  let newCards = Cards.filter(card => cardsToDraw.includes(card.id));
-  console.log(newCards);
+    //find card that was clicked
+    let src = decodeURI(e.target.src.substring(21));
+    let card = Cards.filter(deckCard => deckCard.image === src);
+    console.log(card[0].name, card[0].isClicked);
+    
+    //check if clicked already? yes, you lose. no, increase current score
+    if(!card[0].isClicked) {
+      props.setCurrentScore(props.currentScore + 1);
+      card[0].isClicked = true; 
+      console.log('this card has not been clicked before');
+      //shuffle();    
+    } else {
+      console.log('you have already clicked this card, you lose');
+      alert(`whoops! You already clicked ${card[0].name}!`);
+      resetScore();
+      //shuffle();
+    }  
+  }
 
-
-  //let cardsToShow = Cards.filter(card => card.id === );
+  let newCards = createNewCardArray();
+  //console.log({newCards});
 
   return (
     <main>
 
-      {/* {props.Cards.map(card => (
-        // {console.log(card.name)}
-        <Card.Img 
-        key={card.id}
-        src={card.image} 
-        style={{ width: '15rem', }}
-        className='card'
-        onClick={props.handleCardClick}
-        />
-      ))} */}
-
       {newCards.map(card => (
-        // {console.log(card.name)}
+        //console.log(card.name, card.id),
         <Card.Img 
-        key={card.id}
-        src={card.image} 
-        style={{ width: '15rem', }}
-        className='card'
-        onClick={props.handleCardClick}
+          key={card.id}
+          src={card.image} 
+          style={{ width: '15rem', }}
+          className='card'
+          onClick={handleCardClick}
         />
       ))}
 
