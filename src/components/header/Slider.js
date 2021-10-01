@@ -12,10 +12,10 @@ const Slider = (props) => {
 
   return (
     <div className='settings'>
-      <p>difficulty slider</p>
+      <p>show more/less</p>
       <p>{props.imageCount} images</p>
       <RangeStepInput
-        min={4} max={18}
+        min={2} max={12}
         value={props.imageCount} 
         onChange={onChange.bind(this)}
       />
