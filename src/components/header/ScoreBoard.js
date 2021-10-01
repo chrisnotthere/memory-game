@@ -5,7 +5,7 @@ const ScoreBoard = (props) => {
   return (
     <div className='scoreBoard'>
       <li>current score: {props.score.currentScore}</li>
-      <li>max score: {props.score.maxScore}</li>
+      <li>best score: {props.score.bestScore}</li>
     </div>
   )
 }
