@@ -8,10 +8,6 @@ header {
   color: white;
 }
 
-.scoreBoard {
-  /* background-color: black; */
-}
-
 .titleText {
   font-size: 2rem;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -21,7 +17,4 @@ header {
 
 .title {
   text-align: center;
-}
-
-.settings {
 }

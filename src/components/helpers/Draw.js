@@ -1,7 +1,5 @@
 export const drawCards = (numberOfCards) => {
 
-  console.log('drawing cards now...');
-
   function* shuffle(array) {
     let i = array.length;
 
@@ -16,14 +14,6 @@ export const drawCards = (numberOfCards) => {
   const draw = () => {
     randomCardNumbers.push(ranNums.next().value);
   }
-
-
-//   function repeat(draw, numberOfCards) {
-//     draw();
-//     numberOfCards && --numberOfCards && repeat(draw, numberOfCards);
-// }
-
-//   repeat(draw, numberOfCards);
 
   Array.from({length: numberOfCards}, () => draw());
 

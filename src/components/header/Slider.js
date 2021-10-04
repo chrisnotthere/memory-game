@@ -5,9 +5,7 @@ const Slider = (props) => {
 
   const onChange = (e) => {
     const newVal = e.target.value;
-    //this.setState({value: newVal});
     props.setImageCount(newVal);
-    
 };
 
   return (

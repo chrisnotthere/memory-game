@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import Cards from "./Cards";
 import { drawCards } from "../helpers/Draw";
 
-
 const Main = (props) => {
   
   const resetScore = () => {
@@ -20,34 +19,25 @@ const Main = (props) => {
   }
   
   const handleCardClick = (e) => {
-
-    //find card that was clicked
     let src = decodeURI(e.target.src.substring(21));
     let card = Cards.filter(deckCard => deckCard.image === src);
-    console.log(card[0].name, card[0].isClicked);
+    //console.log(card[0].name, card[0].isClicked);
     
-    //check if clicked already? yes, you lose. no, increase current score
     if(!card[0].isClicked) {
       props.setCurrentScore(props.currentScore + 1);
       card[0].isClicked = true; 
-      console.log('this card has not been clicked before');
-      //shuffle();    
+      //console.log('this card has not been clicked before');
     } else {
-      console.log('you have already clicked this card, you lose');
       alert(`whoops! You already clicked ${card[0].name}!`);
       resetScore();
-      //shuffle();
     }  
   }
 
   let newCards = createNewCardArray();
-  //console.log({newCards});
 
   return (
     <main>
-
       {newCards.map(card => (
-        //console.log(card.name, card.id),
         <Card.Img 
           key={card.id}
           src={card.image} 
@@ -56,7 +46,6 @@ const Main = (props) => {
           onClick={handleCardClick}
         />
       ))}
-
     </main>
   )
 }

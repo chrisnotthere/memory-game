@@ -21,16 +21,6 @@ function App() {
     }
   }, [currentScore]);
 
-  // //draw cards on mount
-  // useEffect(() => {
-  //   drawCards(imageCount);
-  // }, [])
-
-  // //draw cards on imageCount change
-  // useEffect(() => {
-  //   drawCards(imageCount);
-  // }, [imageCount])
-
   return (
     <div className="App">
       <Header
