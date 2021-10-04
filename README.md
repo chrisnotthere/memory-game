@@ -1,3 +1,5 @@
+note: this project did not deploy to gh-pages correctly
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
