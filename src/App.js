@@ -5,7 +5,6 @@ import Main from './components/card_grid/Main';
 import Cards from './components/card_grid/Cards';
 
 function App() {
-
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [imageCount, setImageCount] = useState(4);
