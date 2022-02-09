@@ -17,6 +17,6 @@ export const drawCards = (numberOfCards) => {
 
   Array.from({length: numberOfCards}, () => draw());
 
-  console.log(randomCardNumbers);
+  // console.log(randomCardNumbers);
   return randomCardNumbers;
 }

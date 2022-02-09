@@ -4,8 +4,8 @@ const ScoreBoard = (props) => {
 
   return (
     <div className='scoreBoard'>
-      <li>current score: {props.score.currentScore}</li>
-      <li>best score: {props.score.bestScore}/18</li>
+      <li>Current Score: {props.score.currentScore}</li>
+      <li>High Score: {props.score.bestScore}/18</li>
     </div>
   )
 }

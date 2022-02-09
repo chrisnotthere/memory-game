@@ -14,13 +14,13 @@ const Header = (props) => {
       />
 
       <div className='title'>
-        <p className='titleText'>Memory Card Game</p>
-        <p className='titleDescription'>click on all the images, but dont click the same image twice!</p>
+        <p className='titleText'>Mario Memory</p>
       </div>
 
       <ScoreBoard 
         score={props.score}
       />
+      {/* <p></p> */}
 
     </header>
   )

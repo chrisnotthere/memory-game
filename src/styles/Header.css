@@ -6,15 +6,19 @@ header {
   padding: 3rem;
   height: 8rem;
   color: white;
+  border-bottom: 4pt solid black;
 }
 
 .titleText {
   font-size: 2rem;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .title {
   text-align: center;
+}
+
+.scoreBoard {
+  list-style-type: none;
 }

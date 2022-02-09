@@ -10,8 +10,7 @@ const Slider = (props) => {
 
   return (
     <div className='settings'>
-      <p>show more/less</p>
-      <p>{props.imageCount} images</p>
+      <p>{props.imageCount} cards</p>
       <RangeStepInput
         min={2} max={12}
         value={props.imageCount} 

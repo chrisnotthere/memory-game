@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import './styles/App.css';
 import Header from './components/header/Header';
 import Main from './components/card_grid/Main';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Cards from './components/card_grid/Cards';
 
 function App() {

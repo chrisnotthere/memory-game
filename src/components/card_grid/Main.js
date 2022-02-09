@@ -1,6 +1,7 @@
 import React from "react";
 import '../../styles/Main.css'
-import Card from "react-bootstrap/Card";
+// import Card from "react-bootstrap/Card";
+import Card from './Card'
 import Cards from "./Cards";
 import { drawCards } from "../helpers/Draw";
 
@@ -38,12 +39,10 @@ const Main = (props) => {
   return (
     <main>
       {newCards.map(card => (
-        <Card.Img 
+        <Card 
           key={card.id}
           src={card.image} 
-          style={{ width: '15rem', }}
-          className='card'
-          onClick={handleCardClick}
+          handleCardClick={handleCardClick}
         />
       ))}
     </main>
