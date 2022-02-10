@@ -9,6 +9,7 @@ const Main = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [clicked, setClicked] = useState(null);
+  const [prevScore, setPrevScore] = useState(0);
 
   const resetScore = () => {
     props.setCurrentScore(0);
@@ -33,6 +34,7 @@ const Main = (props) => {
       card[0].isClicked = true;
     } else {
       setClicked(card[0].name)
+      setPrevScore(props.currentScore);
       setIsGameOver(true)
       setIsOpen(true)
       resetScore();
@@ -43,13 +45,16 @@ const Main = (props) => {
 
   return (
     <>
-      <Modal open={isOpen} onClose={() => {setIsOpen(false); setIsGameOver(false)}} >
+      <Modal open={isOpen} onClose={() => { setIsOpen(false); setIsGameOver(false) }} >
         {isGameOver === true ?
-          <p>Whoops! You already clicked <b>{clicked}!</b></p>
+          <>
+            <p>Whoopsie! You already clicked <b>{clicked}!</b></p>
+            <p>Your score: {prevScore}</p>
+          </>
           :
           <>
             <h2>Welcome to Mario Memory!</h2>
-            <p>Get points for choosing a card, but be carfeul!</p>
+            <p>Get points for choosing a card, but be careful!</p>
             <p>If you select the same card twice the game is over.</p>
           </>
         }
