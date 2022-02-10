@@ -14,7 +14,7 @@ function App() {
       setBestScore(currentScore)
     }
     if(currentScore > 17){
-      alert('Congrats! You beat the game!!')
+      alert('You beat the game! Congratulations on your well-deserved success. So pleased to see you accomplishing great things.');
       window.location.reload();      
     }
   }, [currentScore]);
