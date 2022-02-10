@@ -26,7 +26,7 @@ const Main = (props) => {
     let src = decodeURI(e.target.src.substring(21));
     let card = Cards.filter(deckCard => deckCard.image === src);
 
-    if (!card[0].isClicked) {
+    if (!card[0]?.isClicked) {
       props.setCurrentScore(props.currentScore + 1);
       card[0].isClicked = true;
     } else {
@@ -38,7 +38,6 @@ const Main = (props) => {
   }
 
   let newCards = createNewCardArray();
-  console.log(isGameOver)
 
   return (
     <>

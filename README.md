@@ -1,4 +1,4 @@
-[Live](https://google.com)
+[Live](https://chrisnotthere.github.io/memory-game/)
 
 A simple memory game made with React.
 
