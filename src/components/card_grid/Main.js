@@ -26,8 +26,8 @@ const Main = (props) => {
   const handleCardClick = (e) => {
     let src = decodeURI(e.target.src.substring(21));
     let newSrc = src.substring(10)  //this could be done better
-    // let card = Cards.filter(deckCard => deckCard.image === newSrc);   //production
-    let card = Cards.filter(deckCard => deckCard.image === src);      //development
+    let card = Cards.filter(deckCard => deckCard.image === newSrc);   //production
+    // let card = Cards.filter(deckCard => deckCard.image === src);      //development
 
     if (!card[0].isClicked) {
       props.setCurrentScore(props.currentScore + 1);
@@ -65,8 +65,8 @@ const Main = (props) => {
           <Card
             key={card.id}
             src={card.image}
-            // handleCardClick={(e) => handleCardClick(e)}   //production
-            handleCardClick={handleCardClick}   //development
+            handleCardClick={(e) => handleCardClick(e)}   //production
+            // handleCardClick={handleCardClick}   //development
           />
         ))}
       </main>
