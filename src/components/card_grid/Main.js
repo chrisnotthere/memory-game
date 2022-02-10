@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../../styles/Main.css'
 import Card from './Card'
 import Cards from "./Cards";
@@ -7,6 +7,8 @@ import Modal from '../Modal'
 
 const Main = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [clicked, setClicked] = useState(null);
 
   const resetScore = () => {
     props.setCurrentScore(0);
@@ -28,19 +30,29 @@ const Main = (props) => {
       props.setCurrentScore(props.currentScore + 1);
       card[0].isClicked = true;
     } else {
-      alert(`whoops! You already clicked ${card[0].name}!`);
+      setClicked(card[0].name)
+      setIsGameOver(true)
+      setIsOpen(true)
       resetScore();
     }
   }
 
   let newCards = createNewCardArray();
+  console.log(isGameOver)
 
   return (
     <>
-      <Modal open={isOpen} onClose={() => setIsOpen(false)} >
-        <h2>Welcome to Mario Memory!</h2>
-        <p>Get points for choosing a card, but be carfeul!</p>
-        <p>If you select the same card twice the game is over.</p>      </Modal>
+      <Modal open={isOpen} onClose={() => {setIsOpen(false); setIsGameOver(false)}} >
+        {isGameOver === true ?
+          <p>Whoops! You already clicked <b>{clicked}!</b></p>
+          :
+          <>
+            <h2>Welcome to Mario Memory!</h2>
+            <p>Get points for choosing a card, but be carfeul!</p>
+            <p>If you select the same card twice the game is over.</p>
+          </>
+        }
+      </Modal>
       <button onClick={() => setIsOpen(true)} className='button' >Rules</button>
       <main>
         {newCards.map(card => (
